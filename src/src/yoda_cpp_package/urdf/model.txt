@@ -1,0 +1,843 @@
+<sdf version="1.7">
+  <model name="yoda_car_model">
+    <link name="link_1">
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.166667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.166667</iyy>
+          <iyz>0</iyz>
+          <izz>0.166667</izz>
+        </inertia>
+      <pose>0 0 0 0 0 0</pose></inertial>
+      <pose>-0.094832 0.015297 0.069631 0 -0 0</pose>
+      <visual name="visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/arackasa2.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type="pixel" />
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name="collision">
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/arackasa2.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
+        </surface>
+      </collision>
+	
+	<!-- GPS Sensörü -->
+      <sensor name="gps_sensor" type="gps">
+        <pose>0 0 0.8 0 0 0</pose> <!-- GPS'in araç üzerindeki konumu -->
+        <always_on>true</always_on>
+        <update_rate>10</update_rate>
+        <gps>
+          <position_sensing>
+            <horizontal>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>0.01</stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>0.01</stddev>
+              </noise>
+            </vertical>
+          </position_sensing>
+        </gps>
+        <plugin name="gps_plugin" filename="libgazebo_ros_gps_sensor.so">
+          <ros>
+            <namespace>/yoda</namespace>
+            <remapping>~/out:=gps/fix</remapping>
+          </ros>
+          <frame_name>gps_link</frame_name>
+        </plugin>
+      </sensor>
+
+      <!-- GPS Görsel Temsili -->
+      <visual name="gps_visual">
+        <pose>0 0 0.8 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.02</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 1.0 1.0 1</ambient> <!-- Cyan renk -->
+        </material>
+      </visual>
+	
+	<!-- Kamera Sensörü Burada -->
+	<sensor name="camera_sensor" type="camera">
+	  <update_rate>10</update_rate>
+	  <camera>
+	    <horizontal_fov>2.094</horizontal_fov> <!-- 120 derece görüş açısı -->
+	    <image>
+	      <width>800</width>
+	      <height>600</height>
+	      <format>R8G8B8</format>
+	    </image>
+	    <clip>
+	      <near>0.02</near>
+	      <far>100</far>
+	    </clip>
+	    <noise>
+	      <type>gaussian</type>
+	      <mean>0.0</mean> <!-- Ortalama değer -->
+	      <stddev>0.01</stddev> <!-- Standart sapma -->
+	    </noise>
+	  </camera>
+	  <plugin name="ros2_camera_plugin" filename="libgazebo_ros_camera.so">
+	    <ros>
+	      <namespace>/yoda</namespace>
+	      <remapping>image_raw:=/yoda/camera/image_raw</remapping>
+	    </ros>
+	    <camera_name>camera</camera_name>
+	    <frame_name>camera_link</frame_name> <!-- Frame adı -->
+	  </plugin>
+	  <pose>0.8 0 1.0 0 0 0</pose> <!-- Kamerayı öne ve üste taşıyoruz -->
+	</sensor>
+
+        <!-- Kamera Görseli -->
+      <visual name="camera_visual">
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 0.5 1.0 0.5</ambient> <!-- Şeffaf mavi -->
+        </material>
+        <pose>0.8 0 1.0 0 0 0</pose> <!-- Görsel de aynı konumda -->
+      </visual>
+
+	<!-- ROS 2 LiDAR Plugin -->
+	<sensor name="lidar_sensor" type="ray">
+	  <pose>0 0 1.0 0 0 0</pose> <!-- LiDAR'ın araç gövdesine göre konumu -->
+	  <update_rate>10</update_rate> <!-- Güncelleme hızı -->
+	  <ray>
+	    <scan>
+	      <horizontal>
+		<samples>360</samples> <!-- Yatayda ölçüm sayısı -->
+		<resolution>1</resolution> <!-- Çözünürlük -->
+		<min_angle>-3.14159</min_angle> <!-- Minimum açı (radyan) -->
+		<max_angle>3.14159</max_angle> <!-- Maksimum açı (radyan) -->
+	      </horizontal>
+	    </scan>
+	    <range>
+	      <min>0.1</min> <!-- Minimum algılama mesafesi -->
+	      <max>10.0</max> <!-- Maksimum algılama mesafesi -->
+	      <resolution>0.01</resolution> <!-- Mesafe çözünürlüğü -->
+	      <noise>
+		<type>gaussian</type>
+		<mean>0.0</mean> <!-- Ortalama gürültü -->
+		<stddev>0.02</stddev> <!-- Standart sapma -->
+	      </noise>
+	    </range>
+	  </ray>
+	  <plugin name="ros2_lidar_plugin" filename="libgazebo_ros_ray_sensor.so">
+	    <ros>
+	      <namespace>/yoda</namespace>
+	      <remapping>~/out:=lidar/scan</remapping> <!-- ROS 2 Topic Adı -->
+	    </ros>
+	    <output_type>sensor_msgs/LaserScan</output_type> <!-- LaserScan çıktısı -->
+	    <frame_name>lidar_link</frame_name> <!-- Frame adı -->
+	  </plugin>
+	</sensor>
+
+
+      <!-- LiDAR Görsel Temsili -->
+      <visual name="lidar_visual">
+        <pose>0.0 0.0 1.7 0 0 0</pose> <!-- LiDAR konumu ile aynı -->
+        <geometry>
+          <cylinder>
+            <radius>0.05</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.0 0.5 0.0 1</ambient> <!-- Yeşil renk -->
+        </material>
+      </visual>
+
+	<!-- IMU Sensör Tanımı -->
+	<sensor name="imu_sensor" type="imu">
+	  <pose>0 0 0.7 0 0 0</pose> <!-- IMU'nun araç gövdesine göre konumu -->
+	  <always_on>true</always_on>
+	  <update_rate>100</update_rate>
+	  <visualize>true</visualize>
+	  <imu>
+	    <angular_velocity>
+	      <noise>
+		<type>gaussian</type>
+		<mean>0.0</mean> <!-- Ortalama değer -->
+		<stddev>0.01</stddev> <!-- Açısal hız gürültü standart sapması -->
+	      </noise>
+	    </angular_velocity>
+	    <linear_acceleration>
+	      <noise>
+		<type>gaussian</type>
+		<mean>0.0</mean> <!-- Ortalama değer -->
+		<stddev>0.1</stddev> <!-- Doğrusal ivme gürültü standart sapması -->
+	      </noise>
+	    </linear_acceleration>
+	  </imu>
+	  <plugin name="imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+	    <ros>
+	      <namespace>/yoda</namespace> <!-- ROS 2 namespace -->
+	      <remapping>~/out:=imu/data</remapping> <!-- IMU verisi topic'i -->
+	    </ros>
+	    <frame_name>imu_link</frame_name> <!-- IMU frame adı -->
+	    <output_type>sensor_msgs/Imu</output_type> <!-- IMU çıktısı türü -->
+	  </plugin>
+	</sensor>
+
+      <!-- IMU Görsel Temsili -->
+      <visual name="imu_visual">
+        <pose>0.0 0.0 0.7 0 0 0</pose> <!-- IMU'nun konumu ile aynı -->
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.02</size> <!-- IMU'nun boyutları -->
+          </box>
+        </geometry>
+        <material>
+          <ambient>1.0 1.0 0.0 1</ambient> <!-- Sarı renk -->
+        </material>
+      </visual>
+
+    </link>
+    <link name="link_2">
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.166667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.166667</iyy>
+          <iyz>0</iyz>
+          <izz>0.166667</izz>
+        </inertia>
+      <pose>0 0 0 0 0 0</pose></inertial>
+      <pose>-0.772676 -0.555976 -0.016475 0 -0 0</pose>
+      <visual name="visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type="pixel" />
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name="collision">
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>2.0</mu>
+              <mu2>2.0</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+    <link name="link_2_clone">
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.166667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.166667</iyy>
+          <iyz>0</iyz>
+          <izz>0.166667</izz>
+        </inertia>
+      <pose>0 0 0 0 0 0</pose></inertial>
+      <pose>0.814094 -0.560971 -0.016646 0 -0 0</pose>
+      <visual name="visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type="pixel" />
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name="collision">
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>2.0</mu>
+              <mu2>2.0</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+    <link name="link_2_clone_1">
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.166667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.166667</iyy>
+          <iyz>0</iyz>
+          <izz>0.166667</izz>
+        </inertia>
+      <pose>0 0 0 0 0 0</pose></inertial>
+      <pose>-0.771347 0.561189 -0.018824 0 -0 3.1384</pose>
+      <visual name="visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type="pixel" />
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name="collision">
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>2.0</mu>
+              <mu2>2.0</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+    <link name="link_2_clone_1_clone">
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.166667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.166667</iyy>
+          <iyz>0</iyz>
+          <izz>0.166667</izz>
+        </inertia>
+      <pose>0 0 0 0 0 0</pose></inertial>
+      <pose>0.824763 0.54046 -0.017685 0 -0 3.1384</pose>
+      <visual name="visual">
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <lighting>1</lighting>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Grey</name>
+          </script>
+          <shader type="pixel" />
+          <emissive>0 0 0 1</emissive>
+        </material>
+        <transparency>0</transparency>
+        <cast_shadows>1</cast_shadows>
+      </visual>
+      <collision name="collision">
+        <laser_retro>0</laser_retro>
+        <max_contacts>10</max_contacts>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>2.0</mu>
+              <mu2>2.0</mu2>
+              <fdir1>0 0 0</fdir1>
+              <slip1>0</slip1>
+              <slip2>0</slip2>
+            </ode>
+            <torsional>
+              <coefficient>1</coefficient>
+              <patch_radius>0</patch_radius>
+              <surface_radius>0</surface_radius>
+              <use_patch_radius>1</use_patch_radius>
+              <ode>
+                <slip>0</slip>
+              </ode>
+            </torsional>
+          </friction>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+            <threshold>1e+06</threshold>
+          </bounce>
+          <contact>
+            <collide_without_contact>0</collide_without_contact>
+            <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+            <collide_bitmask>1</collide_bitmask>
+            <ode>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <min_depth>0</min_depth>
+            </ode>
+            <bullet>
+              <split_impulse>1</split_impulse>
+              <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+              <soft_cfm>0</soft_cfm>
+              <soft_erp>0.2</soft_erp>
+              <kp>1e+13</kp>
+              <kd>1</kd>
+            </bullet>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+    
+    <!-- SOL ÖN -->
+    <joint name="link_1_JOINT_0" type="revolute">
+      <parent>link_1</parent>
+      <child>link_2_clone_1_clone</child>
+      <pose>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.57</lower>
+          <upper>0.57</upper>
+          <effort>5</effort>
+          <velocity>3.0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>10</spring_stiffness>
+          <damping>5</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+      <!-- Encoder sensör tanımı -->
+      <sensor name="left_front_wheel_encoder" type="joint_state">
+        <always_on>true</always_on>
+        <update_rate>50</update_rate>
+        <plugin name="left_front_encoder_plugin" filename="libgazebo_ros_joint_state_publisher.so">
+          <ros>
+            <namespace>/yoda</namespace>
+            <remapping>~/out:=joint_states</remapping>
+          </ros>
+	  <mean>0.0</mean> <!-- Gürültü için ortalama değer -->
+	  <stddev>0.02</stddev> <!-- Gürültü için standart sapma -->
+          <joint_name>link_1_JOINT_0</joint_name>
+        </plugin>
+      </sensor>
+    </joint>
+    
+    <!-- SAĞ ÖN -->
+    <joint name="link_1_JOINT_1" type="revolute">
+      <parent>link_1</parent>
+      <child>link_2_clone</child>
+      <pose>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.57</lower>
+          <upper>0.57</upper>
+          <effort>5</effort>
+          <velocity>3.0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>10</spring_stiffness>
+          <damping>5</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+      <!-- Encoder sensör tanımı -->
+      <sensor name="right_front_wheel_encoder" type="joint_state">
+        <always_on>true</always_on>
+        <update_rate>50</update_rate>
+        <plugin name="right_front_encoder_plugin" filename="libgazebo_ros_joint_state_publisher.so">
+          <ros>
+            <namespace>/yoda</namespace>
+            <remapping>~/out:=joint_states</remapping>
+          </ros>
+            <mean>0.0</mean> <!-- Gürültü için ortalama değer -->
+            <stddev>0.02</stddev> <!-- Gürültü için standart sapma -->
+          <joint_name>link_1_JOINT_1</joint_name>
+        </plugin>
+      </sensor>
+    </joint>
+	
+	<plugin name="wheel_drive_controller" filename="libgazebo_ros_diff_drive.so">
+	    <ros>
+	      <namespace>/yoda</namespace>
+	      <remapping>cmd_vel:=cmd_vel</remapping>
+	      <remapping>odom:=odom</remapping>
+	    </ros>
+
+	    <!-- Wheel Information -->
+	    <left_joint>link_1_JOINT_2</left_joint>
+	    <right_joint>link_1_JOINT_3</right_joint>
+	    <wheel_separation>1.6</wheel_separation>
+	    <wheel_diameter>0.4</wheel_diameter>
+
+	    <!-- Limits -->
+	    <max_wheel_torque>200</max_wheel_torque>
+	    <max_wheel_acceleration>10.0</max_wheel_acceleration>
+
+	    <!-- Output -->
+	    <odometry_frame>odom</odometry_frame>
+	    <robot_base_frame>link_1</robot_base_frame>
+
+	    <publish_odom>true</publish_odom>
+	    <publish_odom_tf>true</publish_odom_tf>
+	    <publish_wheel_tf>false</publish_wheel_tf>
+
+	    <odometry_source>world</odometry_source>
+	    <update_rate>50</update_rate>
+	</plugin>
+
+	<plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+	    <ros>
+	      <namespace>/yoda</namespace>
+	      <remapping>joint_states:=joint_states</remapping>
+	    </ros>
+	    <update_rate>50</update_rate>
+	    <joint_name>link_1_JOINT_0</joint_name>
+	    <joint_name>link_1_JOINT_1</joint_name>
+	    <joint_name>link_1_JOINT_2</joint_name>
+	    <joint_name>link_1_JOINT_3</joint_name>
+	</plugin>
+
+
+    <!-- SOL ARKA -->
+    <joint name="link_1_JOINT_2" type="revolute">
+      <parent>link_1</parent>
+      <child>link_2_clone_1</child>
+      <pose>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+          <effort>200</effort>
+          <velocity>20.0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+
+    <!-- SAĞ ARKA -->
+    <joint name="link_1_JOINT_3" type="revolute">
+      <parent>link_1</parent>
+      <child>link_2</child>
+      <pose>0 0 0 0 -0 0</pose>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.79769e+308</lower>
+          <upper>1.79769e+308</upper>
+          <effort>200</effort>
+          <velocity>20.0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+          <damping>0.1</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
+
+    <static>0</static>
+    <allow_auto_disable>1</allow_auto_disable>
+    <pose>0 0 0.2 0 0 0</pose>
+    
+  </model>
+</sdf>

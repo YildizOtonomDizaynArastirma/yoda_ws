@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="yoda_control">
+  <!-- Gazebo ROS 2 Control Plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <ros>
+        <namespace>/yoda</namespace>
+      </ros>
+      <parameters>ros2_control.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+  <!-- Sol Arka Tekerlek -->
+  <joint name="link_1_JOINT_2" type="revolute">
+    <parent>link_1</parent>
+    <child>link_2_clone_1</child>
+    <axis xyz="1 0 0"/>
+    <limit effort="10" velocity="10"/>
+  </joint>
+
+  <!-- Sağ Arka Tekerlek -->
+  <joint name="link_1_JOINT_3" type="revolute">
+    <parent>link_1</parent>
+    <child>link_2</child>
+    <axis xyz="1 0 0"/>
+    <limit effort="10" velocity="10"/>
+  </joint>
+
+  <!-- Sol Ön Tekerlek -->
+  <joint name="link_1_JOINT_0" type="continuous">
+    <parent>link_1</parent>
+    <child>link_2_clone_1_clone</child>
+    <axis xyz="0 1 0"/>
+    <limit effort="10" velocity="10"/>
+  </joint>
+
+  <!-- Sağ Ön Tekerlek -->
+  <joint name="link_1_JOINT_1" type="continuous">
+    <parent>link_1</parent>
+    <child>link_2_clone</child>
+    <axis xyz="0 1 0"/>
+    <limit effort="10" velocity="10"/>
+  </joint>
+</robot>

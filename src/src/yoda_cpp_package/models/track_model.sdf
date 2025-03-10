@@ -1,0 +1,1301 @@
+<sdf version="1.6">
+  <world name="robotaxi_world">
+    <scene>
+      <ambient>1 1 1 1</ambient>
+      <background>0.51 0.78 0.90 1</background>
+      <shadows>false</shadows>
+    </scene>
+
+    <!-- Increased Sunlight -->
+    <light type="directional" name="sun">
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
+
+    <!-- Model Tanımlaması -->
+    <model name="robotaxi_race_track">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+
+			<!-- Şeritler Linki -->
+			<link name='seritler'>
+				<pose>19 23 0.12 0 0 0</pose> <!-- x, y, z, roll, pitch, yaw -->
+				<visual name='visual'>
+					<geometry>
+						<mesh>
+						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/robotaksipist.dae</uri>
+						  <scale>0.1 0.1 0.1</scale>
+						</mesh>
+					</geometry>
+					<material>
+						<script>
+						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/robotaksipist.material</uri>
+						  <name>RobotaksiPist/Material</name>
+						</script>
+						<specular>1 1 1 1</specular>
+						<shininess>500</shininess>
+					</material>
+				</visual>
+			</link>
+
+			<!-- Asfalt Linki -->
+			<link name='asfalt'>
+				<pose>0 0 0 0 0 0</pose> <!-- x, y, z, roll, pitch, yaw -->
+				<visual name='visual'>
+					<geometry>
+						<mesh>
+						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/asfalt2.obj</uri>
+						  <scale>1 1 1</scale>
+						</mesh>
+					</geometry>
+					<material>
+						<script>
+						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/asfalt2.material</uri>
+						  <name>Asfalt/Material</name>
+						</script>
+						<specular>1 1 1 1</specular>
+						<shininess>500</shininess>
+					</material>
+				</visual>
+				<collision name='asfalt_collision'>
+					<geometry>
+						<mesh>
+						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/asfalt2.obj</uri>
+						  <scale>1 1 1</scale>
+						</mesh>
+					</geometry>
+					<surface>
+						<friction>
+						  <ode>
+						    <mu>1.0</mu>  <!-- High friction to prevent slipping -->
+						    <mu2>1.0</mu2>
+						  </ode>
+						</friction>
+						<bounce>
+						  <restitution_coefficient>0.0</restitution_coefficient>
+						</bounce>
+					</surface>
+				</collision>
+			</link>
+
+
+				<!-- Ada Etrafında Dönünüz -->
+				<link name="ada-etrafinda-donunuz1">
+					<static>true</static>
+					<pose>38.8554 3.8525 1.775 0 0 3.14159</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="ada-etrafinda-donunuz2">
+					<static>true</static>
+					<pose>50.4334 24.4775 1.775 0 0 1.57854</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+
+				<link name="ada-etrafinda-donunuz3">
+					<static>true</static>
+					<pose>30.8554 36.2388 1.775 0 0 3.14159</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="ada-etrafinda-donunuz4">
+					<static>true</static>
+					<pose>18.1706 16.3933 1.775 0 0 -1.57854</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<!-- Dur -->
+				<link name="giris-olmayan-yol">
+					<static>true</static>
+					<pose>-25.1792 24.4075 1.775 0 0 -1.57854</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/giris-olmayan-yol.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="dur1">
+					<static>true</static>
+					<pose>24.2563 -20.2166 1.85 0 0 -1.57854</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/dur.dae</uri>
+								<scale>2.5 2.5 2.5</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+
+				<link name="dur2">
+					<static>true</static>
+					<pose>52.1784 -52.1992 1.85 0 0 -1.57854</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/dur.dae</uri>
+								<scale>2.5 2.5 2.5</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<!-- Durak -->
+				<link name="durak1">
+					<static>true</static>
+					<pose>8.152200 -51.899200 1.775 0 0 -1.57854</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/durak.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="durak2">
+					<static>true</static>
+					<pose>68.5900 -40.5230 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/durak.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="durak3">
+					<static>true</static>
+					<pose>19.4871 24.3864 1.775 0 0 1.57854</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/durak.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+
+				<!-- Engelli Park -->
+				<link name="engelli-park1">
+					<static>true</static>
+					<pose>-0.85 86.7663 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/engelli-park.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="engelli-park2">
+					<static>true</static>
+					<pose>-6.05 86.7663 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/engelli-park.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="engelli-park3">
+					<static>true</static>
+					<pose>-11.25 86.7663 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/engelli-park.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="engelli-park4">
+					<static>true</static>
+					<pose>-16.45 86.7663 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/engelli-park.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<!-- Mecburi Yönler -->
+				<link name="ileriden-saga-mecburi-yon">
+					<static>true</static>
+					<pose>-3.9164 -0.2144 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileriden-saga-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="ileriden-sola-mecburi-yon">
+					<static>true</static>
+					<pose>68.6488 3.8715 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileriden-sola-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="ileri-ve-saga-mecburi-yon1">
+					<static>true</static>
+					<pose>38.8276 -25.6050 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileri-ve-saga-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="ileri-ve-saga-mecburi-yon2">
+					<static>true</static>
+					<pose>-3.9062 -26.5001 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileri-ve-saga-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+
+				<link name="ileri-ve-sola-mecburi-yon">
+					<static>true</static>
+					<pose>-38.5628 -6.2610 1.775 0 0 3.14159</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileri-ve-sola-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="park1">
+					<static>true</static>
+					<pose>1.8452 86.7663 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="park2">
+					<static>true</static>
+					<pose>-3.4748 86.7663 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+
+				<link name="park3">
+					<static>true</static>
+					<pose>-8.6452 86.7663 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="park4">
+					<static>true</static>
+					<pose>-13.8452 86.7663 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="park5">
+					<static>true</static>
+					<pose>-19.3 86.7663 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+
+				<link name="saga-donulmez">
+					<static>true</static>
+					<pose>-21.0163 53.3261 1.775 0 0 1.578545</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/saga-donulmez.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="sola-donulmez">
+					<static>true</static>
+					<pose>47.4679 53.2799 1.775 0 0 1.57854</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/sola-donulmez.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<!-- Mecburi Yönler -->
+				<link name="saga-mecburi-yon1">
+					<static>true</static>
+					<pose>-3.8719 40.0395 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/saga-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+
+				<link name="saga-mecburi-yon2">
+					<static>true</static>
+					<pose>10.9435 53.2799 1.775 0 0 1.57854</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/saga-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="sola-mecburi-yon1">
+					<static>true</static>
+					<pose>-38.5628 -38.6828 1.775 0 0 3.14159</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/sola-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+				<link name="sola-mecburi-yon2">
+					<static>true</static>
+					<pose>-12.1543 -6.3097 1.775 0 0 3.14159</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/sola-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+
+				<link name="sola-mecburi-yon3">
+					<static>true</static>
+					<pose>68.5488 37.1139 1.775 0 0 0</pose>
+					<visual name="visual">
+						<geometry>
+							<mesh>
+								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/sola-mecburi-yon.dae</uri>
+								<scale>1.875 1.875 1.875</scale>
+							</mesh>
+						</geometry>
+						<material>
+							<script>
+								<uri>file://media/materials/scripts/gazebo.material</uri>
+								<name>Gazebo/YourTextureMaterial</name>
+							</script>
+							<ambient>1 1 1 1</ambient>
+							<diffuse>1 1 1 1</diffuse>
+							<specular>1 1 1 1</specular>
+							<shininess>200</shininess>
+						</material>
+					</visual>
+				</link>
+
+
+	    <link name="cylinder_1">
+	      <pose>38.8554 3.8525 0.775 0 0 0</pose>
+	      <visual name="cylinder_1_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <!-- Simple grey -->
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_2">
+	      <pose>50.4334 24.4775 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_3">
+	      <pose>30.8554 36.2388 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_4">
+	      <pose>18.1706 16.3933 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_5">
+	      <pose>-25.1792 24.4075 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_6">
+	      <pose>24.2563 -20.2166 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_7">
+	      <pose>52.1784 -52.1992 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_8">
+	      <pose>8.152200 -51.899200 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_9">
+	      <pose>68.5900 -40.5230 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_10">
+	      <pose>19.4871 24.3864 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_11">
+	      <pose>-0.85 86.7663 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_12">
+	      <pose>-6.05 86.7663 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_13">
+	      <pose>-11.25 86.7663 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_14">
+	      <pose>-16.45 86.7663 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_15">
+	      <pose>-3.9164 -0.2144 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_16">
+	      <pose>68.6488 3.871 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_17">
+	      <pose>38.8276 -25.6050 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_18">
+	      <pose>-3.9062 -26.5001 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_19">
+	      <pose>-38.5628 -6.2610 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_20">
+	      <pose>1.8452 86.7663 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_21">
+	      <pose>3.4748 86.7663 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_22">
+	      <pose>-8.6452 86.7663 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_23">
+	      <pose>-13.8452 86.7663 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+	    
+	    <link name="cylinder_24">
+	      <pose>-19.3 86.7663 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_25">
+	      <pose>-21.0163 53.3261 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_26">
+	      <pose>47.4679 53.2799 0.775 0 0 1.57854</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_27">
+	      <pose>-3.8719 40.0395 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_28">
+	      <pose>10.9435 53.2799 0.775 0 0 1.57854</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_29">
+	      <pose>-38.5628 -38.6828 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_30">
+	      <pose>-12.1543 -6.3097 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+	    <link name="cylinder_31">
+	      <pose>68.5488 37.1139 0.775 0 0 0</pose>
+	      <visual name="cylinder_2_visual">
+		<geometry>
+		  <cylinder>
+		    <radius>0.04</radius>
+		    <length>1.55</length>
+		  </cylinder>
+		</geometry>
+		<material>
+		  <ambient>0.5 0.5 0.5 1</ambient>
+		  <diffuse>0.5 0.5 0.5 1</diffuse>
+		</material>
+	      </visual>
+	    </link>
+
+      <plugin name="gazebo_ros_factory" filename="libgazebo_ros_factory.so"/>
+    </model>
+  </world>
+</sdf>
+

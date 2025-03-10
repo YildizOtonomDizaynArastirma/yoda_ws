@@ -1,0 +1,226 @@
+
+<robot name="ackermann_car" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!--
+    A simple Ackermann car URDF for ROS 2 + Gazebo.
+    - One chassis
+    - Four wheels (two steered front wheels, two driven rear wheels)
+    - Uses gazebo_ros_ackermann_drive plugin
+  -->
+
+  <!-- =========================== -->
+  <!--            LINKS           -->
+  <!-- =========================== -->
+
+  <!-- Chassis link -->
+  <link name="chassis">
+    <visual>
+      <geometry>
+        <!-- A simple box for the chassis -->
+        <box size="2.0 1.2 0.2"/>
+      </geometry>
+      <material>
+        <color rgba="0.8 0.8 0.8 1"/>
+      </material>
+      <origin xyz="0 0 0.1"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="2.0 1.2 0.2"/>
+      </geometry>
+      <origin xyz="0 0 0.1"/>
+    </collision>
+    <inertial>
+      <!-- Rough, made-up values for example only -->
+      <mass value="50.0"/>
+      <origin xyz="0 0 0.1"/>
+      <inertia ixx="2.0" ixy="0.0" ixz="0.0" iyy="2.0" iyz="0.0" izz="2.0"/>
+    </inertial>
+  </link>
+
+  <!-- Front left wheel link -->
+  <link name="front_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.2" length="0.2"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <material>
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.2" length="0.2"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+    </collision>
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.02" ixy="0.0" ixz="0.0" iyy="0.02" iyz="0.0" izz="0.02"/>
+    </inertial>
+  </link>
+
+  <!-- Front right wheel link -->
+  <link name="front_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.2" length="0.2"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <material>
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.2" length="0.2"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+    </collision>
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.02" ixy="0.0" ixz="0.0" iyy="0.02" iyz="0.0" izz="0.02"/>
+    </inertial>
+  </link>
+
+  <!-- Rear left wheel link -->
+  <link name="rear_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.2" length="0.2"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <material>
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.2" length="0.2"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+    </collision>
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.02" ixy="0.0" ixz="0.0" iyy="0.02" iyz="0.0" izz="0.02"/>
+    </inertial>
+  </link>
+
+  <!-- Rear right wheel link -->
+  <link name="rear_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.2" length="0.2"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <material>
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.2" length="0.2"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+    </collision>
+    <inertial>
+      <mass value="5.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.02" ixy="0.0" ixz="0.0" iyy="0.02" iyz="0.0" izz="0.02"/>
+    </inertial>
+  </link>
+
+
+  <!-- =========================== -->
+  <!--           JOINTS           -->
+  <!-- =========================== -->
+
+  <!-- Front left steering joint (vertical axis for steering) -->
+  <joint name="front_left_steer_joint" type="revolute">
+    <parent link="chassis"/>
+    <child link="front_left_wheel"/>
+    <!-- Position the wheel forward (x=1.0) and left (y=0.6); adjust as needed -->
+    <origin xyz="1.0 0.6 0.0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.7" upper="0.7" effort="100.0" velocity="1.0"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!-- Front right steering joint (vertical axis for steering) -->
+  <joint name="front_right_steer_joint" type="revolute">
+    <parent link="chassis"/>
+    <child link="front_right_wheel"/>
+    <!-- Forward (x=1.0), right (y=-0.6) -->
+    <origin xyz="1.0 -0.6 0.0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.7" upper="0.7" effort="100.0" velocity="1.0"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!-- Rear left wheel joint (rotation about y-axis for rolling) -->
+  <joint name="rear_left_wheel_joint" type="revolute">
+    <parent link="chassis"/>
+    <child link="rear_left_wheel"/>
+    <!-- Position the wheel behind the chassis (x=-1.0) and to the left (y=0.6) -->
+    <origin xyz="-1.0 0.6 0.0" rpy="0 0 0"/>
+    <!-- Wheel rolling axis is around y in this orientation, 
+         but it can vary depending on how you set the <origin rpy>. -->
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="100.0" velocity="0.0"/>
+    <!-- Using lower=upper=0.0 locks the steering axis. You can also keep it continuous if you want the wheel to spin about that same axis. 
+         Typically you'd have a second joint or a plugin controlling the rotation around the wheel axis. 
+         For simplicity, let's keep it as a revolve about y so it can spin. -->
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <!-- Rear right wheel joint (rotation about y-axis for rolling) -->
+  <joint name="rear_right_wheel_joint" type="revolute">
+    <parent link="chassis"/>
+    <child link="rear_right_wheel"/>
+    <origin xyz="-1.0 -0.6 0.0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="0.0" upper="0.0" effort="100.0" velocity="0.0"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+
+  <!-- =========================== -->
+  <!--        GAZEBO PLUGINS      -->
+  <!-- =========================== -->
+  <gazebo>
+    <plugin name="gazebo_ros_ackermann_drive" filename="libgazebo_ros_ackermann_drive.so">
+      <ros>
+        <!-- You can place this in a namespace if desired -->
+        <namespace>/</namespace>
+        <!-- Remap or name your ackermann command topic -->
+        <remapping>cmd_ackermann:=cmd_ackermann</remapping>
+      </ros>
+
+      <ackermann_drive>
+        <!-- The plugin needs to know which joints it controls:
+             Steering joints: front_left, front_right
+             Wheel joints (driven): usually the rear wheels in typical Ackermann. 
+             (If you have a second joint for wheel rotation, adjust accordingly.) -->
+        <left_steering_joint>front_left_steer_joint</left_steering_joint>
+        <right_steering_joint>front_right_steer_joint</right_steering_joint>
+        <left_wheel_joint>rear_left_wheel_joint</left_wheel_joint>
+        <right_wheel_joint>rear_right_wheel_joint</right_wheel_joint>
+
+        <!-- Steering limit in radians -->
+        <steering_limit>0.7</steering_limit>
+
+        <!-- Optional parameters for plugin:
+             <wheel_base>1.0</wheel_base> 
+             <wheel_track>1.2</wheel_track> 
+             <publish_tf>true</publish_tf>
+             ... etc.
+        -->
+      </ackermann_drive>
+    </plugin>
+  </gazebo>
+
+</robot>
+
