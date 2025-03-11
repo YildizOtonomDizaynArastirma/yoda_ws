@@ -68,7 +68,7 @@ def main(args=None):
     rclpy.init(args=args)
     node = SpawnModelNode()
 
-    base_path = '/home/safa/yoda_ws/src/yoda_cpp_package/meshes'
+    base_path = '/home/myazou/yoda_ws/src/yoda_cpp_package/meshes'
     lights = {
         'g': {
             'name_prefix': 'traffic_light_green',

@@ -7,7 +7,7 @@
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/meshes/kirmizisariyesil.dae</uri>
+            <uri>model://yoda_cpp_package/meshes/kirmizisariyesil.dae</uri>
             <scale>0.1 0.1 0.1</scale>
           </mesh>
         </geometry>
@@ -15,7 +15,7 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/meshes/kirmizisariyesil.dae</uri>
+            <uri>model://yoda_cpp_package/meshes/kirmizisariyesil.dae</uri>
             <scale>0.1 0.1 0.1</scale>
           </mesh>
         </geometry>

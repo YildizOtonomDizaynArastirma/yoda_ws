@@ -21,12 +21,12 @@
   <link name="base_link">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/arackasa.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/arackasa.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/arackasa.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/arackasa.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -35,12 +35,12 @@
   <link name="front_left_wheel">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -49,12 +49,12 @@
   <link name="front_right_wheel">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -63,12 +63,12 @@
   <link name="rear_left_wheel">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -77,12 +77,12 @@
   <link name="rear_right_wheel">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -288,12 +288,12 @@
   <link name="base_link">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/arackasa.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/arackasa.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/arackasa.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/arackasa.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -302,12 +302,12 @@
   <link name="front_left_wheel">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -316,12 +316,12 @@
   <link name="front_right_wheel">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -330,12 +330,12 @@
   <link name="rear_left_wheel">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -344,12 +344,12 @@
   <link name="rear_right_wheel">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/lastik.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/lastik.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
@@ -358,12 +358,12 @@
   <link name="chassis">
     <visual>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/arackasa.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/arackasa.obj" scale="1 1 1"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="file:///home/emircan/yoda_ws/src/yoda_cpp_package/urdf/arackasa.obj" scale="1 1 1"/>
+        <mesh filename="package://yoda_cpp_package/meshes/arackasa.obj" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>

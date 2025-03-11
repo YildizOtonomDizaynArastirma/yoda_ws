@@ -17,7 +17,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/arackasa2.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/arackasa2.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -39,7 +39,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/arackasa2.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/arackasa2.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -289,7 +289,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -311,7 +311,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -379,7 +379,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -401,7 +401,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -469,7 +469,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -491,7 +491,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -559,7 +559,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -581,7 +581,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/safa/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
+            <uri>/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/lastik.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

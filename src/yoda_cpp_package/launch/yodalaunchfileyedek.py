@@ -11,8 +11,8 @@ def generate_launch_description():
     package_name = 'yoda_cpp_package'
 
     # SDF dosyasının tam yolunu belirle
-    yoda_car_sdf_file_path = "/home/safa/yoda_ws/src/yoda_cpp_package/urdf/model.urdf"
-    yoda_map_sdf_file_path = "/home/safa/yoda_ws/src/yoda_cpp_package/models/track_model.sdf"
+    yoda_car_sdf_file_path = "/home/myazou/yoda_ws/src/yoda_cpp_package/urdf/model.urdf"
+    yoda_map_sdf_file_path = "/home/myazou/yoda_ws/src/yoda_cpp_package/models/track_model.sdf"
     control_yaml = os.path.join(
         get_package_share_directory(package_name),
         'config',

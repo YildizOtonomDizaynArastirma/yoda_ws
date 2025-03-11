@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <model name="traffic_light_green">
+  <model name="traffic_light_red">
     <pose>0 0 0 0 0 0</pose>
     <static>true</static>
     <link name="link">
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/meshes/yesil.dae</uri>
+            <uri>model://yoda_cpp_package/meshes/kirmizi.dae</uri>
             <scale>0.1 0.1 0.1</scale>
           </mesh>
         </geometry>
@@ -15,7 +15,7 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/meshes/yesil.dae</uri>
+            <uri>model://yoda_cpp_package/meshes/kirmizi.dae</uri>
             <scale>0.1 0.1 0.1</scale>
           </mesh>
         </geometry>

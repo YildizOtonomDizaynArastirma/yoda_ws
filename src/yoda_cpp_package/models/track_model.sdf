@@ -25,13 +25,13 @@
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/robotaksipist.dae</uri>
+						  <uri>model://yoda_cpp_package/meshes/robotaksipist.dae</uri>
 						  <scale>0.1 0.1 0.1</scale>
 						</mesh>
 					</geometry>
 					<material>
 						<script>
-						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/robotaksipist.material</uri>
+						  <uri>model://yoda_cpp_package/meshes/robotaksipist.dae</uri>
 						  <name>RobotaksiPist/Material</name>
 						</script>
 						<specular>1 1 1 1</specular>
@@ -46,13 +46,13 @@
 				<visual name='visual'>
 					<geometry>
 						<mesh>
-						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/asfalt2.obj</uri>
+						  <uri>model://yoda_cpp_package/meshes/asfalt2.obj</uri>
 						  <scale>1 1 1</scale>
 						</mesh>
 					</geometry>
 					<material>
 						<script>
-						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/asfalt2.material</uri>
+						  <uri>model://yoda_cpp_package/meshes/asfalt2.obj</uri>
 						  <name>Asfalt/Material</name>
 						</script>
 						<specular>1 1 1 1</specular>
@@ -62,7 +62,7 @@
 				<collision name='asfalt_collision'>
 					<geometry>
 						<mesh>
-						  <uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/models/asfalt2.obj</uri>
+						  <uri>model://yoda_cpp_package/meshes/asfalt2.obj</uri>
 						  <scale>1 1 1</scale>
 						</mesh>
 					</geometry>
@@ -88,7 +88,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -111,7 +111,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -135,7 +135,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -158,7 +158,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/ada-etrafinda-donunuz.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -182,7 +182,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/giris-olmayan-yol.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/giris-olmayan-yol.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -205,7 +205,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/dur.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/dur.dae</uri>
 								<scale>2.5 2.5 2.5</scale>
 							</mesh>
 						</geometry>
@@ -229,7 +229,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/dur.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/dur.dae</uri>
 								<scale>2.5 2.5 2.5</scale>
 							</mesh>
 						</geometry>
@@ -253,7 +253,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/durak.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/durak.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -275,7 +275,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/durak.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/durak.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -297,7 +297,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/durak.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/durak.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -321,7 +321,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/engelli-park.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/engelli-park.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -343,7 +343,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/engelli-park.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/engelli-park.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -365,7 +365,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/engelli-park.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/engelli-park.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -387,7 +387,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/engelli-park.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/engelli-park.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -410,7 +410,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileriden-saga-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/ileriden-saga-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -433,7 +433,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileriden-sola-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/ileriden-sola-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -456,7 +456,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileri-ve-saga-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/ileri-ve-saga-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -479,7 +479,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileri-ve-saga-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/ileri-ve-saga-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -503,7 +503,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/ileri-ve-sola-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/ileri-ve-sola-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -526,7 +526,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/park.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -548,7 +548,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/park.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -571,7 +571,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/park.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -593,7 +593,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/park.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -615,7 +615,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/park.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/park.dae</uri>
 							</mesh>
 						</geometry>
 						<material>
@@ -638,7 +638,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/saga-donulmez.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/saga-donulmez.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -661,7 +661,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/sola-donulmez.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/sola-donulmez.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -685,7 +685,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/saga-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/saga-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -709,7 +709,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/saga-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/saga-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -732,7 +732,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/sola-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/sola-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -755,7 +755,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/sola-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/sola-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
@@ -779,7 +779,7 @@
 					<visual name="visual">
 						<geometry>
 							<mesh>
-								<uri>file:///home/safa/yoda_ws/src/yoda_cpp_package/worlds/sola-mecburi-yon.dae</uri>
+								<uri>model://yoda_cpp_package/worlds/sola-mecburi-yon.dae</uri>
 								<scale>1.875 1.875 1.875</scale>
 							</mesh>
 						</geometry>
